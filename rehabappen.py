@@ -1,5 +1,11 @@
 #rehabappen
 import tkinter as tk
+import webbrowser
+
+def open_pdf():
+    rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Kajsa.pdf"
+    webbrowser.open(rehabProgram)
+
 
 window = tk.Tk()
 
@@ -10,7 +16,7 @@ welcome.pack()
 info.pack()
 nyTid.pack()
 
-rehab_button = tk.Button(window, text= "Visa träningsprogram")
+rehab_button = tk.Button(window, text= "Visa träningsprogram", command = open_pdf)
 link_button = tk.Button(window, text = "Boka ny tid")
 diagnos_button = tk.Button(window, text = "Information om mina besvär")
 
