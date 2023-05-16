@@ -10,4 +10,12 @@ welcome.pack()
 info.pack()
 nyTid.pack()
 
+rehab_button = tk.Button(window, text= "Visa träningsprogram")
+link_button = tk.Button(window, text = "Boka ny tid")
+diagnos_button = tk.Button(window, text = "Information om mina besvär")
+
+rehab_button.pack()
+link_button.pack()
+diagnos_button.pack()
+
 window.mainloop()
