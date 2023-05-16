@@ -1,7 +1,7 @@
 #rehabappen
 import tkinter as tk
 import webbrowser
-from tkinter import ttk
+from PIL import ImageTk, Image
 
 def open_pdf():
     rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Kajsa.pdf"
@@ -16,7 +16,7 @@ def open_diagnos():
 window = tk.Tk()
 window.configure(bg="#e4d5b7")
 
-welcome = tk.Label(window, text="Välkommen, Kajsa", font=("Consolas", 20, "italic", "bold"), fg="#800080", bg="#e4d5b7")
+welcome = tk.Label(window, text="Välkommen, Kajsa", font=("Consolas", 40, "italic", "bold"), fg="#800080", bg="#e4d5b7")
 welcome.pack(pady=50)
 info = tk.Label(window, text="Här har du tillgång till allt som rör ditt besök på sjukgymnastiken. Navigera genom att klicka på de olika knapparna.", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
 info.pack(pady=30)
@@ -31,10 +31,22 @@ rehab_button = tk.Button(button_frame, text= "Visa träningsprogram", command = 
 boka_button = tk.Button(button_frame, text = "Boka ny tid", command = open_boka, width=30, height=10, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 diagnos_button = tk.Button(button_frame, text = "Information om mina besvär", command =open_diagnos, width=30, height=10, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 
-boka_button.pack(side="left", padx=50, pady=100)
-rehab_button.pack(side="left", padx=50, pady=100)
-diagnos_button.pack(side="left", padx=50, pady=100)
+boka_button.pack(side="left", padx=50, pady=60)
+rehab_button.pack(side="left", padx=50, pady=60)
+diagnos_button.pack(side="left", padx=50, pady=60)
 
 button_frame.pack()
+
+image = Image.open("blomma.jpg")
+image = image.resize((200, 200))  # Justera storleken på bilden om det behövs
+photo = ImageTk.PhotoImage(image)
+
+# Skapa en separat container-widget för bilderna
+image_frame = tk.Frame(window)
+image_frame.pack(pady=30)
+
+for i in range(8):
+    image_label = tk.Label(image_frame, image=photo)
+    image_label.grid(row=0, column=i)
 
 window.mainloop()
