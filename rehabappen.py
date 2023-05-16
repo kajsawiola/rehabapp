@@ -6,6 +6,11 @@ def open_pdf():
     rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Kajsa.pdf"
     webbrowser.open(rehabProgram)
 
+def open_boka():
+    webbrowser.open("https://e-tjanster.1177.se/mvk/login/login.xhtml")
+
+def open_diagnos():
+    webbrowser.open("https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/")
 
 window = tk.Tk()
 
@@ -17,8 +22,8 @@ info.pack()
 nyTid.pack()
 
 rehab_button = tk.Button(window, text= "Visa träningsprogram", command = open_pdf)
-link_button = tk.Button(window, text = "Boka ny tid")
-diagnos_button = tk.Button(window, text = "Information om mina besvär")
+link_button = tk.Button(window, text = "Boka ny tid", command = open_boka)
+diagnos_button = tk.Button(window, text = "Information om mina besvär", command =open_diagnos )
 
 rehab_button.pack()
 link_button.pack()
