@@ -5,12 +5,13 @@ from PIL import ImageTk, Image
 import json
 
 class Person:
-    def __init__(self, namn, text, program, diagnos, bild):
+    def __init__(self, namn, text, program, diagnos, bild, id):
         self.namn = namn
         self.text = text
         self.program = program
         self.diagnos = diagnos
         self.bild = bild
+        self.id = id
 
     def to_dict(self):
         return {
@@ -18,7 +19,8 @@ class Person:
             'text': self.text,
             'program': self.program,
             'diagnos': self.diagnos,
-            'bild': self.bild
+            'bild': self.bild,
+            'id': self.id
         }
 
     
@@ -27,23 +29,23 @@ class Person:
         with open(filename, 'r') as file:
             data = json.load(file)
             for item in data:
-                person = Person(item['namn'], item['text'], item['program'], item['diagnos'], item['bild'])
+                person = Person(item['namn'], item['text'], item['program'], item['diagnos'], item['bild'], item['id'])
                 persons.append(person)
         return persons
 
-def load_person_info(name, persons):
+def load_person_info(idInput, persons):
     for person in persons:
-        if person.namn == name:
+        if person.id == idInput:
             return person
     return None
 
 def start_program():
-    name = name_entry.get()
-    person = load_person_info(name, persons)
+    idInput = name_entry.get()
+    person = load_person_info(idInput, persons)
     if person is None:
         print("Personen finns inte i databasen")
         return
-    welcome.config(text=f"Välkommen, {person.namn}")
+    welcome.config(text=f"Välkommen {person.namn}")
     rehab_button.config(command=lambda: webbrowser.open(r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\\"+person.program+".pdf"))
     diagnos_button.config(command=lambda: webbrowser.open(person.diagnos))
     nyTid.config(text="Du rekommenderas boka en ny tid efter " +person.text+ " veckors rehabträning.")
@@ -54,9 +56,9 @@ def open_boka():
     webbrowser.open("https://e-tjanster.1177.se/mvk/login/login.xhtml")
 
 def update_image(person):
-    image_path = f"{person.bild}.jpg"  # Antag att bilden heter "<bild>.jpg"
+    image_path = f"{person.bild}.jpg"  
     image = Image.open(image_path)
-    image = image.resize((200, 200))  # Justera storleken på bilden om det behövs
+    image = image.resize((200, 200)) 
     photo = ImageTk.PhotoImage(image)
 
     image_label.config(image=photo)
@@ -70,26 +72,26 @@ window.title("Din rehabilitering")
 
 
 name_entry = tk.Entry(window, font=("Consolas", 16), fg="gray")
-name_entry.insert(0, "Ange ditt namn här")
+name_entry.insert(0, "Ange din kod här")
 
 def on_entry_click(event):
-    if name_entry.get() == "Ange ditt namn här":
+    if name_entry.get() == "Ange din kod här":
         name_entry.delete(0, tk.END)
         name_entry.config(fg="black")
 
 def on_focusout(event):
     if name_entry.get() == "":
-        name_entry.insert(0, "Ange ditt namn här")
+        name_entry.insert(0, "Ange din kod här")
         name_entry.config(fg="gray")
 
 name_entry.bind("<FocusIn>", on_entry_click)
 name_entry.bind("<FocusOut>", on_focusout)
 name_entry.pack(pady=10)
 
-start_button = tk.Button(window, text="Starta program", command=start_program, width=15, height=2, font=("Verdana", 14, "bold"), bg="#8c92ac", fg="#5b264f")
+start_button = tk.Button(window, text="Logga in", command=start_program, width=15, height=2, font=("Verdana", 14, "bold"), bg="#8c92ac", fg="#5b264f")
 start_button.pack(pady=10)
 
-welcome = tk.Label(window, text="Välkommen, ", font=("Consolas", 40, "italic", "bold"), fg="#800080", bg="#e4d5b7")
+welcome = tk.Label(window, text=" ", font=("Consolas", 40, "italic", "bold"), fg="#5b264f", bg="#e4d5b7")
 welcome.pack(pady=20)
 
 image = Image.open("blomma.jpg")
