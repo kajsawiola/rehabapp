@@ -45,15 +45,8 @@ def start_program():
     rehab_button.config(command=lambda: webbrowser.open(r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\\"+person.program+".pdf"))
     diagnos_button.config(command=lambda: webbrowser.open(person.diagnos))
 
-def open_pdf():
-    rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Rehab.pdf"
-    webbrowser.open(rehabProgram)
-
 def open_boka():
     webbrowser.open("https://e-tjanster.1177.se/mvk/login/login.xhtml")
-
-def open_diagnos():
-    webbrowser.open("https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/")
 
 persons = Person.load_from_json()
 
@@ -94,9 +87,9 @@ nyTid.pack(pady=15)
 button_frame = tk.Frame(window)
 button_frame.configure(bg="#e4d5b7")
 
-rehab_button = tk.Button(button_frame, text="Visa träningsprogram", command=open_pdf, width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
+rehab_button = tk.Button(button_frame, text="Visa träningsprogram", width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 boka_button = tk.Button(button_frame, text="Boka ny tid", command=open_boka, width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
-diagnos_button = tk.Button(button_frame, text="Information om mina besvär", command=open_diagnos, width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
+diagnos_button = tk.Button(button_frame, text="Information om mina besvär", width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 
 boka_button.pack(side="left", padx=20, pady=20)
 rehab_button.pack(side="left", padx=20, pady=20)
