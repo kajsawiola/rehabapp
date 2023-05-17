@@ -2,7 +2,32 @@
 import tkinter as tk
 import webbrowser
 from PIL import ImageTk, Image
+import json
 
+class Person:
+    def __init__(self, namn, text, program, diagnos):
+        self.namn= namn
+        self.text= text
+        self.program= program
+        self.diagnos= diagnos
+    
+    def to_dict(self):
+        return {
+            'name': self.namn,
+            'text': self.text,
+            'program': self.program,
+            'diagnos': self.diagnos
+        }
+    
+    def load_from_json(filename="list.json"):
+        persons = []
+        with open(filename, 'r') as file:
+            for line in file:
+                data = json.loads(line)
+                person = Person(data['name'], data['text'], data['program'], data['diagnos'])
+                persons.append(person)
+        return persons
+    
 def open_pdf():
     rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Rehab.pdf"
     webbrowser.open(rehabProgram)

@@ -1,0 +1,26 @@
+[
+    {
+        "namn": "Kajsa",
+        "text": "3",
+        "program": "rehab",
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+    },
+    {
+        "namn": "Anna",
+        "text": "2",
+        "program": "rehab",
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+    },
+    {
+        "namn": "Peter",
+        "text": "10",
+        "program": "rehab",
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+    },
+    {
+        "namn": "Johan",
+        "text": "12",
+        "program": "rehab",
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+    }
+]
