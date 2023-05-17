@@ -59,6 +59,28 @@ persons = Person.load_from_json()
 
 window = tk.Tk()
 window.configure(bg="#e4d5b7")
+window.title("Din rehabilitering")
+
+
+name_entry = tk.Entry(window, font=("Consolas", 16), fg="gray")
+name_entry.insert(0, "Ange ditt namn här")
+
+def on_entry_click(event):
+    if name_entry.get() == "Ange ditt namn här":
+        name_entry.delete(0, tk.END)
+        name_entry.config(fg="black")
+
+def on_focusout(event):
+    if name_entry.get() == "":
+        name_entry.insert(0, "Ange ditt namn här")
+        name_entry.config(fg="gray")
+
+name_entry.bind("<FocusIn>", on_entry_click)
+name_entry.bind("<FocusOut>", on_focusout)
+name_entry.pack(pady=10)
+
+start_button = tk.Button(window, text="Starta program", command=start_program, width=15, height=2, font=("Verdana", 14, "bold"), bg="#8c92ac", fg="#5b264f")
+start_button.pack(pady=10)
 
 welcome = tk.Label(window, text="Välkommen, ", font=("Consolas", 40, "italic", "bold"), fg="#800080", bg="#e4d5b7")
 welcome.pack(pady=20)
@@ -92,11 +114,5 @@ image_frame.pack(pady=30)
 for i in range(4):
     image_label = tk.Label(image_frame, image=photo)
     image_label.grid(row=0, column=i)
-
-name_entry = tk.Entry(window, font=("Consolas", 16))
-name_entry.pack(pady=10)
-
-start_button = tk.Button(window, text="Starta program", command=start_program, width=15, height=2, font=("Verdana", 14, "bold"), bg="#8c92ac", fg="#5b264f")
-start_button.pack(pady=10)
 
 window.mainloop()
