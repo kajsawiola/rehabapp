@@ -44,7 +44,8 @@ def start_program():
     welcome.config(text=f"Välkommen, {person.namn}")
     rehab_button.config(command=lambda: webbrowser.open(r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\\"+person.program+".pdf"))
     diagnos_button.config(command=lambda: webbrowser.open(person.diagnos))
-
+    nyTid.config(text="Du rekommenderas boka en ny tid efter " +person.text+ " veckors rehabträning.")
+    
 def open_boka():
     webbrowser.open("https://e-tjanster.1177.se/mvk/login/login.xhtml")
 
@@ -81,7 +82,7 @@ welcome.pack(pady=20)
 info = tk.Label(window, text="Här har du tillgång till allt som rör ditt besök på sjukgymnastiken.\n Navigera genom att klicka på de olika knapparna.", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
 info.pack(pady=15)
 
-nyTid = tk.Label(window, text="Du rekommenderas boka en ny tid efter 3 veckors rehabträning.", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
+nyTid = tk.Label(window, text=" ", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
 nyTid.pack(pady=15)
 
 button_frame = tk.Frame(window)
