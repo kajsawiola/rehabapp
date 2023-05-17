@@ -5,18 +5,20 @@ from PIL import ImageTk, Image
 import json
 
 class Person:
-    def __init__(self, namn, text, program, diagnos):
+    def __init__(self, namn, text, program, diagnos, bild):
         self.namn = namn
         self.text = text
         self.program = program
         self.diagnos = diagnos
+        self.bild = bild
 
     def to_dict(self):
         return {
             'namn': self.namn,
             'text': self.text,
             'program': self.program,
-            'diagnos': self.diagnos
+            'diagnos': self.diagnos,
+            'bild': self.bild
         }
 
     
@@ -25,7 +27,7 @@ class Person:
         with open(filename, 'r') as file:
             data = json.load(file)
             for item in data:
-                person = Person(item['namn'], item['text'], item['program'], item['diagnos'])
+                person = Person(item['namn'], item['text'], item['program'], item['diagnos'], item['bild'])
                 persons.append(person)
         return persons
 
@@ -45,9 +47,20 @@ def start_program():
     rehab_button.config(command=lambda: webbrowser.open(r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\\"+person.program+".pdf"))
     diagnos_button.config(command=lambda: webbrowser.open(person.diagnos))
     nyTid.config(text="Du rekommenderas boka en ny tid efter " +person.text+ " veckors rehabträning.")
+    update_image(person)
+    
     
 def open_boka():
     webbrowser.open("https://e-tjanster.1177.se/mvk/login/login.xhtml")
+
+def update_image(person):
+    image_path = f"{person.bild}.jpg"  # Antag att bilden heter "<bild>.jpg"
+    image = Image.open(image_path)
+    image = image.resize((200, 200))  # Justera storleken på bilden om det behövs
+    photo = ImageTk.PhotoImage(image)
+
+    image_label.config(image=photo)
+    image_label.image = photo
 
 persons = Person.load_from_json()
 
@@ -79,6 +92,17 @@ start_button.pack(pady=10)
 welcome = tk.Label(window, text="Välkommen, ", font=("Consolas", 40, "italic", "bold"), fg="#800080", bg="#e4d5b7")
 welcome.pack(pady=20)
 
+image = Image.open("blomma.jpg")
+image = image.resize((200, 200))
+photo = ImageTk.PhotoImage(image)
+
+image_frame = tk.Frame(window)
+image_frame.pack(pady=30)
+
+for i in range(1):
+    image_label = tk.Label(image_frame, image=photo)
+    image_label.grid(row=0, column=i)
+
 info = tk.Label(window, text="Här har du tillgång till allt som rör ditt besök på sjukgymnastiken.\n Navigera genom att klicka på de olika knapparna.", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
 info.pack(pady=15)
 
@@ -98,15 +122,7 @@ diagnos_button.pack(side="left", padx=20, pady=20)
 
 button_frame.pack()
 
-image = Image.open("blomma.jpg")
-image = image.resize((200, 200))
-photo = ImageTk.PhotoImage(image)
 
-image_frame = tk.Frame(window)
-image_frame.pack(pady=30)
 
-for i in range(4):
-    image_label = tk.Label(image_frame, image=photo)
-    image_label.grid(row=0, column=i)
 
 window.mainloop()
