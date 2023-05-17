@@ -27,6 +27,12 @@ class Person:
                 person = Person(data['name'], data['text'], data['program'], data['diagnos'])
                 persons.append(person)
         return persons
+
+def load_person_info(name, persons):
+    for person in persons:
+        if person.namn == name:
+            return person
+    return None
     
 def open_pdf():
     rehabProgram = r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\Rehab.pdf"
