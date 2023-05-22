@@ -89,12 +89,12 @@ name_entry.bind("<FocusOut>", on_focusout)
 name_entry.pack(pady=10)
 
 start_button = tk.Button(window, text="Logga in", command=start_program, width=15, height=2, font=("Verdana", 14, "bold"), bg="#8c92ac", fg="#5b264f")
-start_button.pack(pady=10)
+start_button.pack(pady=5)
 
 welcome = tk.Label(window, text=" ", font=("Consolas", 40, "italic", "bold"), fg="#5b264f", bg="#e4d5b7")
-welcome.pack(pady=20)
+welcome.pack(pady=10)
 
-image = Image.open("blomma.jpg")
+image = Image.open("liljekonvalj.jpg")
 image = image.resize((200, 200))
 photo = ImageTk.PhotoImage(image)
 
@@ -118,9 +118,9 @@ rehab_button = tk.Button(button_frame, text="Visa träningsprogram", width=25, h
 boka_button = tk.Button(button_frame, text="Boka ny tid", command=open_boka, width=25, height=3, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 diagnos_button = tk.Button(button_frame, text="Information om mina besvär", width=25, height=3, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 
-boka_button.pack(side="top", padx=20, pady=20)
-rehab_button.pack(side="top", padx=20, pady=20)
-diagnos_button.pack(side="left", padx=20, pady=20)
+boka_button.pack(side="top", padx=15, pady=10)
+rehab_button.pack(side="top", padx=15, pady=10)
+diagnos_button.pack(side="left", padx=15, pady=10)
 
 button_frame.pack()
 
