@@ -1,0 +1,28 @@
+Projektspecifikation
+230516
+
+1. Kajsa Magnusson, kajsam@hotmail.com
+
+2. Mitt program ska illustrera en tänkt app. Appen ska vara ett hjälpmedel inom vården, främst för fysioterapeuter (Ft). Ft ska kunna registrera: 
+- Ett träningsprogram  i pdf-format (button)
+- Infotext tex om  hur ofta programmet ska göras och när nästa tid ska bokas. (label)
+- Länk till bokningsystemet (button)
+- Länk till bra info om given diagnos (button)
+Mitt program ska illlustrera hur det kommer se ut och fungera i en tänkt app när en patient har loggat in och får tillgång till sin sida med dess innehåll och funktioner. Syftet relaterat till verkligheten är tänkt att vid vårdbesökets slut får pat en kod/länk tex via sms där hen får tillgång till sin privata sida, likt den traditionella "kom ihåg" lappen som ofta används idag med syfte att få så bra compliance som möjligt.  
+
+Ideér om fortsatt utveckling av programmet efter miniprojketets slut: 
+- Kunna lagra flera patienter med egna inlogg till dessa så de kan logga in hemifrån. 
+- En funktion där patienten kan registrera sina rehabpass och skriva hur det gått. 
+- Kunna ta fram statistik på utförd rehab. 
+
+3. Programmet ska göras med Tkinter. Dokumentation: https://docs.python.org/3/library/tkinter.html
+
+4. Jag kommer bygga koden från scrath men ta hjälp av dessa tutorials för att skapa koden: 
+
+https://realpython.com/python-gui-tkinter/
+https://www.youtube.com/watch?v=YXPyB4XeYLA
+
+5. Mitt git-repo: https://github.com/kajsawiola/rehabapp.git
+
+
+

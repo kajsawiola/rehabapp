@@ -2,25 +2,33 @@
     {
         "namn": "Kajsa",
         "text": "3",
-        "program": "rehab",
-        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+        "program": "Myalgi",
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/",
+	  "bild": "Profilbild",
+	  "id": "1231"
     },
     {
-        "namn": "Anna",
+        "namn": "Batman",
         "text": "2",
         "program": "rehab",
-        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/armar-och-hander/de-quervains-syndrom/",
+        "bild": "Batman",
+        "id": "1232"
     },
     {
-        "namn": "Peter",
+        "namn": "Otto",
         "text": "10",
         "program": "rehab",
-        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/ont-i-nacke-och-axlar/",
+        "bild": "Otto",
+        "id": "1233"
     },
     {
-        "namn": "Johan",
+        "namn": "August",
         "text": "12",
         "program": "rehab",
-        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/leder/artros---ledsvikt/"
+        "diagnos": "https://www.1177.se/Orebrolan/sjukdomar--besvar/skelett-leder-och-muskler/vaxtvark/",
+        "bild": "August",
+        "id": "1234"
     }
 ]
