@@ -48,7 +48,7 @@ def start_program():
     welcome.config(text=f"Välkommen {person.namn}")
     rehab_button.config(command=lambda: webbrowser.open(r"C:\Users\Användar\PycharmProjects\pythonProject2\projketarbete maj23\\"+person.program+".pdf"))
     diagnos_button.config(command=lambda: webbrowser.open(person.diagnos))
-    nyTid.config(text="Du rekommenderas boka en ny tid efter " +person.text+ " veckors rehabträning.")
+    nyTid.config(text="Du rekommenderas boka en ny tid efter "+ person.text + " veckors rehabträning.")
     update_image(person)
     
     
@@ -105,21 +105,21 @@ for i in range(1):
     image_label = tk.Label(image_frame, image=photo)
     image_label.grid(row=0, column=i)
 
-info = tk.Label(window, text="Här har du tillgång till allt som rör ditt besök på sjukgymnastiken.\n Navigera genom att klicka på de olika knapparna.", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
+info = tk.Label(window, text="Här har du tillgång till allt som rör ditt besök på sjukgymnastiken.\n Navigera genom att klicka på de olika knapparna.", font=("Consolas", 14), fg="#5b264f", bg="#e4d5b7")
 info.pack(pady=15)
 
-nyTid = tk.Label(window, text=" ", font=("Consolas", 14), fg="#800080", bg="#e4d5b7")
+nyTid = tk.Label(window, text=" ", font=("Consolas", 14, "bold"), fg="#5b264f", bg="#e4d5b7")
 nyTid.pack(pady=15)
 
 button_frame = tk.Frame(window)
 button_frame.configure(bg="#e4d5b7")
 
-rehab_button = tk.Button(button_frame, text="Visa träningsprogram", width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
-boka_button = tk.Button(button_frame, text="Boka ny tid", command=open_boka, width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
-diagnos_button = tk.Button(button_frame, text="Information om mina besvär", width=25, height=5, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
+rehab_button = tk.Button(button_frame, text="Visa träningsprogram", width=25, height=3, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
+boka_button = tk.Button(button_frame, text="Boka ny tid", command=open_boka, width=25, height=3, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
+diagnos_button = tk.Button(button_frame, text="Information om mina besvär", width=25, height=3, font=("Verdana", 16, "bold"), bg="#8c92ac", fg="#5b264f")
 
-boka_button.pack(side="left", padx=20, pady=20)
-rehab_button.pack(side="left", padx=20, pady=20)
+boka_button.pack(side="top", padx=20, pady=20)
+rehab_button.pack(side="top", padx=20, pady=20)
 diagnos_button.pack(side="left", padx=20, pady=20)
 
 button_frame.pack()
